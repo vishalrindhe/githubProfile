@@ -1,1 +1,53 @@
-<p>profile works!</p>
+<!-- <div class="container" *ngIf="data.userData != null">
+    <div class="row fs-3 fw-bold">
+        <div class="col">
+            Profile
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4  bg-secondary">
+            <div class="d-flex justify-content-center align-items-center">
+                <img class="rounded-circle border border-3" src={{data.userData.avatar_url}} alt="">
+            </div>
+        </div>
+        <div class="7 bg-light">
+a
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container">
+    <div class="row fs-3 fw-bold">
+        <div class="col">
+            Profile
+        </div>
+    </div>
+    <div class="row" *ngIf="data.userData != null && data.profile">
+        <div class="col-4 text-center">
+            <img class="rounded-circle border border-3" src={{data.userData.avatar_url}} alt="">
+
+        </div>
+        <div class="col-8 fs-5">
+            <span class="fw-bold">Name : </span>  <span>{{data.userData.name}}</span><br>
+            <span class="fw-bold">Bio : </span> <span>{{data.userData.bio}}</span><br>
+            <span class="fw-bold"> Location : </span> <span>{{data.userData.location}}</span><br>
+            <span class="fw-bold"> Twitter UserName : </span> <span>{{data.userData.twitter_username}}</span><br>
+            <span class="fw-bold"> Blog : </span> <span>{{data.userData.blog}}</span><br>
+            <span class="fw-bold"> Company : </span> <span>{{data.userData.company}}</span><br>            
+
+        </div>
+        <div class="col-12 fs-5 my-3">
+            <span class="fw-bold"> Hireable : </span> <span>{{data.userData.hireable}}</span><br>
+            <span class="fw-bold"> Public Repositories : </span> <span>{{data.userData.public_repos}}</span><br>
+            <span class="fw-bold"> Public Gits : </span> <span>{{data.userData.public_gists}}</span><br>
+            <span class="fw-bold"> Followers : </span> <span>{{data.userData.followers}}</span><br>
+            <span class="fw-bold"> Following : </span> <span>{{data.userData.following}}</span><br>
+
+        </div>
+    </div>
+
+    <div class="row d-flex" *ngIf="data.userData == null || !data.profile">
+        <div class="col-12 displayCenter text-center fs-1 fw-bold">No Data Available</div>
+    </div>
+</div>

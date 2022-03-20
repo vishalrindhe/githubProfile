@@ -1,6 +1,6 @@
-<div>
+<div class="">
     <div class="row">
-        <nav class="navbar navbar-dark bg-secondary">
+        <nav class="navbar navbar-dark bg-light">
             <div class="container">
                 <!-- <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"> -->
                 <span class="fs-3"> Search Github Profiles</span>
@@ -10,10 +10,30 @@
     <div class="row">
         <div class="col">
             <div class="input-group mb-3">
-                <input [(ngModel)]="searchKey" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-              </div>
-              
+                <input [(ngModel)]="searchKey" type="text" class="form-control" placeholder="Search here for Username..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-success" type="button" id="button-addon2" (click)="search()">search</button>
+            </div>
         </div>
+    </div>
+
+    <div class="row ">
+        <div *ngIf="data.userData != null" class="col d-flex justify-content-center align-middle">
+            <div  class="card" style="width: 20em;" (click)="profile()">
+                <div class="bg-secondary">
+                    <img *ngIf="data.userData != null" src={{data.userData.avatar_url}} class=" border border-3 card-img-top bg-secondary" alt="..." >
+                </div>
+                <!-- <img *ngIf="data.userData != null" src="...rtyu" class="card-img-top bg-secondary" alt="..."> -->
+                <div class="card-body text-center">
+                  <span class=" fs-4">{{data.userData.name}}</span>
+                </div>
+            </div>
+            
+        </div>
+        <div *ngIf="data.userData == null" class="col-12 d-flex d-flex justify-content-center align-middle">
+            <div class="displayCenter" >
+                <span class="fs-1 fw-bold ">Search for Username</span>
+            </div>
+        </div>
+       
     </div>
 </div>

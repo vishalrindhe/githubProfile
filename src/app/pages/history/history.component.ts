@@ -10,8 +10,27 @@ export class HistoryComponent implements OnInit {
 
   constructor(public data:DataService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    console.log('inside history');
     
+    this.data.getHistory()
+  }
+
+  search(searchKey:any){
+    this.data.username(searchKey,'history')
+    this.data.profile = true
+  }
+
+  deleteHistory(i:any){
+    this.data.history.splice(i,1)
+    this.data.postHistory(this.data.history)
+    this.data.getHistory()
+  }
+
+  clearHistory(){
+    console.log("clicked");
+    
+    this.data.clearHistory()
   }
 
 }

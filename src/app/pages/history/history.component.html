@@ -1,1 +1,32 @@
-<p>{{data.name}}</p>
+
+<div class="container">
+    <div class="row my-1 d-flex">
+        <div class="col-3">
+            <span class="fs-3 fw-bold"> History : &nbsp;</span>
+        </div>
+        <div class="col-6 text-center">
+                        <span class="mx-2" ><span class="mx-2 shadow  badge bg-success">&nbsp;</span> <span>: successful search</span></span>
+                        <span class="mx-2" ><span class="mx-2 shadow  badge bg-danger">&nbsp;</span> <span>: unsuccessful search</span></span>
+        </div>
+        <div class="col-3  text-end">
+            <button class="btn btn-outline-primary" (click)="clearHistory()">Clear All History</button>
+        </div>
+    </div>
+    <div class="row"  >
+        <div class="col ">
+            <!-- <span class="mx-2 shadow rounded-pill badge bg-success">&nbsp;</span> <span>: successful search</span>
+            <span class="mx-2 shadow rounded-pill badge bg-danger">&nbsp;</span> <span>: unsuccessful search</span> -->
+
+            <!-- form-check-inline -->
+            <div *ngFor="let item of data?.history;let i=index;" class="shadow rounded-pill badge p-2 m-2" (click)="search(item.username)" [class]="item.result ? 'bg-success':'bg-danger' ">
+                {{item.username}}&nbsp; <span class=" text-wrap text-justify  rounded-circle px-1 " (click)="deleteHistory(i)"  ><span class="btn-close btn-close-white"></span></span>
+            </div>
+        <!-- <span class="m-1 text-wrap text-justify" *ngFor="let item of data.history;let i=index;" >
+            <span class="rounded-pill text-wrap text-justify text-white a" [class]="item.result ? 'bg-success':'bg-danger' " >
+                <span class="m">{{item.username}} &nbsp; <span class=" text-wrap text-justify bg-light rounded-circle px-1 "><span class="btn-close"></span></span>
+            </span>
+            </span>
+        </span> -->
+        </div>
+    </div>
+</div>

@@ -8,13 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  searchKey:any
+  searchKey:any = ''
   constructor(public data:DataService) { }
 
   ngOnInit(): void {
-    setTimeout(()=>{
-      this.data.name= 'xyz'
-    },5000)
+  }
+  
+  search(){
+    this.data.username(this.searchKey,'search')
+    this.data.profile = false
+  }
+
+  profile(){
+    this.data.profile = true
   }
 
 }
