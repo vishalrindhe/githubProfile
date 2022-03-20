@@ -24,11 +24,11 @@ a
         </div>
     </div>
     <div class="row" *ngIf="data.userData != null && data.profile">
-        <div class="col-4 text-center">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
             <img class="rounded-circle border border-3" src={{data.userData.avatar_url}} alt="">
 
         </div>
-        <div class="col-8 fs-5">
+        <div class="col-12 col-lg-8 fs-5">
             <span class="fw-bold">Name : </span>  <span>{{data.userData.name}}</span><br>
             <span class="fw-bold">Bio : </span> <span>{{data.userData.bio}}</span><br>
             <span class="fw-bold"> Location : </span> <span>{{data.userData.location}}</span><br>
